@@ -7,7 +7,7 @@ const Page = async () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar rawProducts={rawProducts} />
       <div className="mt-10 p-5">
         <h1 className="text-3xl font-bold text-center">Our Categories</h1>
         <div className="grid grid-cols-2 gap-y-6 sm:grid-cols-4 gap-10 mt-4 ">

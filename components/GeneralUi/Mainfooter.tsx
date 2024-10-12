@@ -1,4 +1,6 @@
+import { Contact } from "lucide-react";
 import Link from "next/link";
+import ContactUs from "./ContactUs";
 
 export default function Footer() {
   return (
@@ -22,24 +24,26 @@ export default function Footer() {
           <Link href="/" className="text-sm hover:underline">
             Home
           </Link>
-          <Link href="/about" className="text-sm hover:underline">
+          <Link href="#" className="text-sm hover:underline">
             About
           </Link>
           <Link href="/services" className="text-sm hover:underline">
             Services
           </Link>
-          <Link href="/products" className="text-sm hover:underline">
+          <Link href="/category" className="text-sm hover:underline">
             Products
           </Link>
-          <Link href="/contact" className="text-sm hover:underline">
-            Contact
-          </Link>
+          {/* <ContactUs
+            callString="Contact"
+            className="text-sm hover:underline bg-none border-none"
+          /> */}
         </nav>
       </div>
       <div className="container mx-auto mt-8 pt-4 border-t border-gray-200">
         <div className="flex flex-col sm:flex-row justify-between items-center">
           <p className="text-sm text-gray-600 mb-2 sm:mb-0">
-            © {new Date().getFullYear()} Acme Inc. All rights reserved.
+            © {new Date().getFullYear()} Foretech Equipments. All rights
+            reserved.
           </p>
           <p className="text-sm text-gray-600">
             Developed by{" "}

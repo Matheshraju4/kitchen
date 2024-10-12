@@ -1,6 +1,6 @@
 import { getCategories } from "@/lib/prisma";
 import CircleCard from "./subComponent/circleCard";
-import { Button } from "../ui/button";
+
 import Link from "next/link";
 
 interface Products {

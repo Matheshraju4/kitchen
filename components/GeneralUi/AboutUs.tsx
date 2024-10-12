@@ -12,7 +12,7 @@ const AboutUs = () => {
       <div className="flex md:flex-row flex-col gap-4 mt-6 w-full p-5 bg-gray-100 text-black max-w-7xl mx-auto rounded-lg">
         <div className="w-full md:w-2/3 flex flex-col items-center justify-center">
           <Image
-            src="/nice.jpg"
+            src="/logo1.png"
             alt=""
             width={1000}
             height={1000}

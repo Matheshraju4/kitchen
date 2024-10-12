@@ -6,10 +6,15 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { getCategoriesProducts, getSingleProduct } from "@/lib/prisma";
+import {
+  getCategories,
+  getCategoriesProducts,
+  getSingleProduct,
+} from "@/lib/prisma";
 
 import Link from "next/link";
 import Navbar from "@/components/GeneralUi/NavBar";
+import ContactUs from "@/components/GeneralUi/ContactUs";
 interface Products {
   id: string;
   title: string;
@@ -31,7 +36,11 @@ interface AvailableSize {
   size: string;
   productId: number;
 }
-
+interface ProductsNav {
+  id: number;
+  name: string;
+  image: string;
+}
 // Interface for Product
 interface Product {
   id: number;
@@ -53,7 +62,7 @@ export default async function ProductPage({
   const rawProducts = await getCategoriesProducts(relatedid);
 
   // Transform raw data to match Product interface
-
+  const rawProductsNav: ProductsNav[] | null = await getCategories();
   const relatedProducts: Products[] = rawProducts.map((product: any) => ({
     id: product.id.toString(),
     title: product.productName,
@@ -65,7 +74,7 @@ export default async function ProductPage({
   }));
   return (
     <>
-      <Navbar />
+      <Navbar rawProducts={rawProductsNav} />
       {products ? (
         <div className="container mx-auto px-4 py-8 max-w-6xl">
           <main>
@@ -127,6 +136,13 @@ export default async function ProductPage({
                         </table>
                       ))}
                     </p>
+                  </div>
+                  <div className="flex justify-start items-center pt-7">
+                    {" "}
+                    <ContactUs
+                      callString="Request a Quote"
+                      className="bg-blue-900 text-white px-8 py-2 rounded-lg hover:bg-blue-800 transition duration-300 max-w-xl"
+                    />
                   </div>
                 </div>
               </div>

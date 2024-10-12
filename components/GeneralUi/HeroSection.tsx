@@ -89,7 +89,7 @@ export default function HeroSection() {
               </Link>
               <ContactUs
                 className="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 bg-white bg-opacity-20 px-8 text-sm font-medium text-white shadow-sm transition-colors hover:bg-opacity-30 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
-                callString="Call Now"
+                callString="Request Quote"
               />
             </div>
           </div>
