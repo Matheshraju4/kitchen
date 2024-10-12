@@ -1,6 +1,7 @@
 import AboutUs from "@/components/GeneralUi/AboutUs";
 import Catergories from "@/components/GeneralUi/Catergories";
 import Clients from "@/components/GeneralUi/Clients";
+import ContactUs from "@/components/GeneralUi/ContactUs";
 import HeroSection from "@/components/GeneralUi/HeroSection";
 import Footer from "@/components/GeneralUi/Mainfooter";
 

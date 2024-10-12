@@ -1,4 +1,4 @@
-import { Card } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 interface Products {
   key: number;
@@ -6,10 +6,10 @@ interface Products {
   name: string;
   image: string;
 }
-export default function CircleCard({ key, name, image, id }: Products) {
+export default function SquareCard({ key, name, image, id }: Products) {
   return (
     <Card
-      className="w-44 h-44 md:w-64 md:h-64  mx-auto overflow-hidden rounded-full relative"
+      className="w-44 h-44 md:w-64 md:h-64  mx-auto overflow-hidden rounded-md  relative"
       key={key}
     >
       <a className="w-full h-full relative" href={`/catergory/${id}`}>
@@ -24,12 +24,10 @@ export default function CircleCard({ key, name, image, id }: Products) {
           // }}
           width="256"
         />
-        <div className="absolute inset-x-0 top-16 md:top-24 flex justify-center">
-          <Badge className="bg-gray-800 text-white py-1 px-4 text-md font-medium rounded-xl mt-2 hover:bg-gray-950">
-            {name}
-          </Badge>
-        </div>
       </a>
+      <CardHeader className="absolute inset-x-0 bottom-0 md:bottom-0 font-bold text-white bg-gray-950 h-7 text-base  flex justify-center">
+        {name}
+      </CardHeader>
     </Card>
   );
 }

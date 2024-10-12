@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import ContactUs from "./ContactUs";
 
 const images = [
   "/placeholder.svg?height=1080&width=1920&text=Image+1",
@@ -81,17 +82,15 @@ export default function HeroSection() {
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link
-                href="#"
+                href="/catergory"
                 className="inline-flex h-10 items-center justify-center rounded-md bg-white px-8 text-sm font-medium text-gray-900 shadow transition-colors hover:bg-gray-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
               >
                 Explore Now
               </Link>
-              <Link
-                href="#"
+              <ContactUs
                 className="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 bg-white bg-opacity-20 px-8 text-sm font-medium text-white shadow-sm transition-colors hover:bg-opacity-30 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
-              >
-                Learn More
-              </Link>
+                callString="Call Now"
+              />
             </div>
           </div>
         </div>

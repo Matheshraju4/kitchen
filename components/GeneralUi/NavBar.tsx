@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import ContactUs from "./ContactUs";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,7 +21,7 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="text-xl font-bold text-gray-800">
-              Logo
+              Foretech Equipments
             </Link>
           </div>
 
@@ -30,7 +31,7 @@ export default function Navbar() {
               Home
             </Link>
             <Link
-              href="/products"
+              href="/catergory"
               className="text-gray-600 hover:text-gray-800"
             >
               Our Products
@@ -38,16 +39,19 @@ export default function Navbar() {
             <Link href="/blog" className="text-gray-600 hover:text-gray-800">
               Blog
             </Link>
-            <Link href="/contact" className={contactButtonClasses}>
-              Contact Us
-            </Link>
+            <ContactUs
+              callString="Contact Us"
+              className={contactButtonClasses}
+            />
           </div>
 
           {/* Mobile menu button and Contact Us button */}
           <div className="md:hidden flex items-center space-x-2">
-            <Link href="/contact" className={`${contactButtonClasses} text-sm`}>
-              Contact Us
-            </Link>
+            <ContactUs
+              callString="Contact Us"
+              className={contactButtonClasses}
+            />
+
             <button
               onClick={toggleMenu}
               className="text-gray-600 hover:text-gray-800 focus:outline-none"
