@@ -74,11 +74,13 @@ export default function HeroSection() {
         <div className="container mx-auto px-4 md:px-16">
           <div className="max-w-2xl space-y-6">
             <h1 className="text-3xl font-bold tracking-tighter text-white sm:text-5xl xl:text-6xl/none">
-              Discover Amazing Adventures
+              Premium Industrial Kitchen Equipment Setup for Commercial
+              Business.
             </h1>
             <p className="max-w-[600px] text-lg text-gray-200 md:text-xl">
-              Embark on unforgettable journeys to breathtaking destinations
-              around the world. Let us guide you to extraordinary experiences.
+              Upgrade your commercial kitchen with our top-tier equipment and
+              expert installation. We deliver customized solutions to streamline
+              your food preparation and service.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link
@@ -97,20 +99,6 @@ export default function HeroSection() {
       </div>
 
       {/* Navigation buttons */}
-      <button
-        onClick={prevImage}
-        className="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-2 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
-        aria-label="Previous image"
-      >
-        <ChevronLeft className="h-6 w-6" />
-      </button>
-      <button
-        onClick={nextImage}
-        className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-2 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
-        aria-label="Next image"
-      >
-        <ChevronRight className="h-6 w-6" />
-      </button>
     </section>
   );
 }

@@ -1,3 +1,4 @@
+"use client";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,7 +14,7 @@ interface Products {
   name: string;
   image: string;
 }
-const DropDown = async ({
+const DropDown = ({
   string,
   rawProducts,
 }: {
