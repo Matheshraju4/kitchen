@@ -15,8 +15,15 @@ const images = [
 export default function HeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const backgroundRef = useRef<HTMLDivElement>(null);
+  const imageArray = [
+    "/sample4.jpg",
+    "/sample2.jpg",
+    "/sample3.jpg",
+    "/sample.jpg",
+  ];
 
   useEffect(() => {
+    // Scroll effect
     const handleScroll = () => {
       if (backgroundRef.current) {
         const scrollPosition = window.scrollY;
@@ -26,22 +33,18 @@ export default function HeroSection() {
       }
     };
 
+    // Image rotation
+    const imageInterval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageArray.length);
+    }, 2000); // Change image every 2 seconds
+
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      clearInterval(imageInterval); // Clear interval on component unmount
     };
   }, []);
-
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
-    );
-  };
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
@@ -54,10 +57,10 @@ export default function HeroSection() {
           top: "-25%",
         }}
       >
-        {images.map((src, index) => (
+        {imageArray.map((src, index) => (
           <Image
             key={src}
-            src={`/sample4.jpg`}
+            src={src}
             alt={`Hero background ${index + 1}`}
             width={1920}
             height={1080}
@@ -97,8 +100,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-
-      {/* Navigation buttons */}
     </section>
   );
 }

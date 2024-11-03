@@ -1,4 +1,4 @@
-import { getCategoriesProducts } from "@/lib/prisma";
+import { getCategories, getCategoriesProducts } from "@/lib/prisma";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -13,7 +13,11 @@ interface Product {
 
   catName: string;
 }
-
+interface Products {
+  id: number;
+  name: string;
+  image: string;
+}
 const page = async ({ params }: { params: { id: string } }) => {
   const id = Number(params.id);
   const rawProducts = await getCategoriesProducts(id);
@@ -29,10 +33,11 @@ const page = async ({ params }: { params: { id: string } }) => {
     catName: product.category?.name,
     // Replace with the actual price if available
   }));
+  const rawProductsNav: Products[] | null = await getCategories();
 
   return (
     <>
-      <Navbar />
+      <Navbar rawProducts={rawProductsNav} />
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-8">
           {products[0].catName ? products[0].catName : "Loading..."}

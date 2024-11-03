@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import ContactUs from "./ContactUs";
 import DropDown from "./subComponent/DropDown";
+import Image from "next/image";
 interface Products {
   id: number;
   name: string;
@@ -18,16 +19,17 @@ export default function Navbar({ rawProducts }: { rawProducts: Products[] }) {
   };
 
   const contactButtonClasses =
-    "bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-8 py-2 rounded-3xl font-medium hover:from-yellow-500 hover:to-orange-600 transition duration-300";
+    "bg-gray-900  text-white px-8 py-2 rounded-3xl font-medium text-md hover:from-yellow-500 hover:to-orange-600 transition duration-300";
 
   return (
     <nav className="bg-white shadow-md">
       <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="text-xl font-bold text-gray-800 ">
+            {/* <Link href="/" className="text-xl font-bold text-gray-800 ">
               Foretech Equipments
-            </Link>
+            </Link> */}
+            <Image src={"/logo2.png"} alt="logo" width={150} height={50} />
           </div>
 
           {/* Desktop menu */}

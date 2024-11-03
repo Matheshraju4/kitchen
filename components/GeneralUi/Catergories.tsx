@@ -16,9 +16,21 @@ const Catergories = async () => {
 
   return (
     <>
-      <div className="mt-10 p-5 ">
-        <h1 className="text-3xl font-bold text-center">Our Categories</h1>
-        <div className="grid grid-cols-2 gap-y-6 sm:grid-cols-4 gap-4 mt-4 ">
+      <div className=" p-5 ">
+        <div className="flex flex-row justify-between">
+          <h1 className="text-xl md:text-3xl font-bold text-left md:text-right text-black w-full">
+            Our Categories
+          </h1>
+          <div className="w-3/4 text-right md:pr-12">
+            <Link
+              href="/catergory"
+              className="mt-10 bg-blue-950 text-white px-4 py-2 rounded-md w-24"
+            >
+              View All
+            </Link>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-y-6 sm:grid-cols-4 gap-4   py-10">
           {renderFourProducts?.map((product) => (
             <CircleCard
               id={product.id}
@@ -27,15 +39,6 @@ const Catergories = async () => {
               image={product.image}
             />
           ))}
-        </div>
-        <div className="w-full flex flex-col justify-center items-center">
-          {" "}
-          <Link
-            href="/catergory"
-            className="mx-auto mt-10 bg-blue-950 text-white px-4 py-2 rounded-md"
-          >
-            View All
-          </Link>
         </div>
       </div>
     </>
