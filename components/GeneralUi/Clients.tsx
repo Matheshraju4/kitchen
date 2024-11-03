@@ -1,19 +1,48 @@
+"use client";
 import React from "react";
 import SingleClient from "./subComponent/SingleClient";
 
 const Clients = () => {
-  const clients = Array.from({ length: 21 }, (_, index) => ({
+  const clients = Array.from({ length: 10 }, (_, index) => ({
     name: `Client ${index + 1}`,
   }));
+
   return (
-    <div className="mt-10 p-5">
-      <h1 className="text-3xl font-bold text-center">Our Clients</h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1 md:gap-4 p-2 md:p-10 mx-auto place-items-center text-center">
-        {clients.map((_, index) => (
-          <SingleClient location={index + 1} key={index} />
-        ))}
+    <section className="py-20 bg-background">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-12">
+          Trusted by world's most innovative teams
+        </h2>
+
+        <div className="relative">
+          {/* Gradient overlays */}
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10"></div>
+
+          {/* Single row infinite scroll */}
+          <div className="relative overflow-hidden">
+            <div className="flex animate-scroll whitespace-nowrap">
+              {/* First set of logos */}
+              <div className="flex space-x-16 pr-16">
+                {clients.map((_, index) => (
+                  <div key={index} className="flex-shrink-0 w-40">
+                    <SingleClient location={index + 1} />
+                  </div>
+                ))}
+              </div>
+              {/* Duplicate set for seamless loop */}
+              <div className="flex space-x-16 pr-16">
+                {clients.map((_, index) => (
+                  <div key={`duplicate-${index}`} className="flex-shrink-0 w-40">
+                    <SingleClient location={index + 1} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

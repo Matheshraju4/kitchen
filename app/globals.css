@@ -10,6 +10,19 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  
+  .animate-scroll {
+    animation: scroll 25s linear infinite;
+  }
+  
+  .animate-scroll-reverse {
+    animation: scroll-reverse 40s linear infinite;
+  }
+  
+  .animate-scroll:hover,
+  .animate-scroll-reverse:hover {
+    animation-play-state: paused;
+  }
 }
 
 @layer base {
@@ -40,6 +53,7 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
@@ -75,4 +89,72 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Add service card animations */
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.5s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+/* Service card hover effects */
+.service-card-hover {
+  transition: all 0.3s ease;
+}
+
+.service-card-hover:hover {
+  transform: translateY(-8px);
+}
+
+/* Icon hover animation */
+.icon-hover {
+  transition: all 0.3s ease;
+}
+
+.icon-hover:hover {
+  transform: scale(1.1);
+  color: hsl(var(--destructive));
+}
+
+/* Corner decoration animations */
+.corner-decoration {
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.service-card-hover:hover .corner-decoration {
+  opacity: 1;
+}
+
+/* Gradient overlay animation */
+.gradient-overlay {
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.service-card-hover:hover .gradient-overlay {
+  opacity: 1;
 }

@@ -21,13 +21,31 @@ const categories = [
 const ProvideServices = () => {
   return (
     <div className="mt-10 p-5">
-      <h1 className="text-3xl font-bold text-center">
-        We provide the following services
-      </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-2 md:p-10">
-        {categories.map((category, index) => (
-          <Services key={index} title={category.title} Icon={category.icon} />
-        ))}
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-3xl md:text-4xl font-bold text-center mb-4 
+                     animate-fade-in relative">
+          We provide the following services
+          <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 
+                        w-24 h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent"></div>
+        </h1>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-2 md:p-10">
+          {categories.map((category, index) => (
+            <div
+              key={index}
+              className="animate-fade-up"
+              style={{
+                animationDelay: `${index * 150}ms`
+              }}
+            >
+              <Services 
+                title={category.title} 
+                Icon={category.icon}
+                description={`Professional ${category.title.toLowerCase()} equipment and maintenance services`}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
